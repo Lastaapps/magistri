@@ -6,7 +6,7 @@ object Versions {
     val JAVA = JavaVersion.VERSION_11
     const val JVM_TARGET = "11"
 
-    const val GRADLE = "7.2.1"
+    const val GRADLE = "7.4.0-alpha02"
 
     //Versions
     //Studio

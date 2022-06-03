@@ -13,4 +13,5 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Bakalari"
-include ':app'
+
+include("app")
