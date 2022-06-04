@@ -3,9 +3,9 @@
 package cz.lastaapps.api.login
 
 import androidx.test.filters.SmallTest
+import cz.lastaapps.api.login.entities.School
+import cz.lastaapps.api.login.entities.Town
 import cz.lastaapps.api.login.school.SchoolRequestsImpl
-import cz.lastaapps.api.login.school.entities.School
-import cz.lastaapps.api.login.school.entities.Town
 import io.kotest.matchers.collections.shouldContain
 import io.kotest.matchers.collections.shouldNotHaveSize
 import io.kotest.matchers.shouldNotBe

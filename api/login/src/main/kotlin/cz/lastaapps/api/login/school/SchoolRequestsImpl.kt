@@ -1,9 +1,9 @@
 package cz.lastaapps.api.login.school
 
 import cz.lastaapps.api.login.Constants
-import cz.lastaapps.api.login.school.entities.School
-import cz.lastaapps.api.login.school.entities.SchoolsInTown
-import cz.lastaapps.api.login.school.entities.Town
+import cz.lastaapps.api.login.entities.School
+import cz.lastaapps.api.login.entities.SchoolsInTown
+import cz.lastaapps.api.login.entities.Town
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.engine.cio.*

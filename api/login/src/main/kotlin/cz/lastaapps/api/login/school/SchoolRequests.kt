@@ -1,7 +1,7 @@
 package cz.lastaapps.api.login.school
 
-import cz.lastaapps.api.login.school.entities.School
-import cz.lastaapps.api.login.school.entities.Town
+import cz.lastaapps.api.login.entities.School
+import cz.lastaapps.api.login.entities.Town
 import kotlinx.coroutines.channels.Channel
 
 interface SchoolRequests {

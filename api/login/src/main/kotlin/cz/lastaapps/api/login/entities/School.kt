@@ -1,4 +1,4 @@
-package cz.lastaapps.api.login.school.entities
+package cz.lastaapps.api.login.entities
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

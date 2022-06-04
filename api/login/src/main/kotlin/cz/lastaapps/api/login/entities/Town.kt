@@ -1,4 +1,4 @@
-package cz.lastaapps.api.login.school.entities
+package cz.lastaapps.api.login.entities
 
 import android.net.Uri
 import kotlinx.serialization.Serializable

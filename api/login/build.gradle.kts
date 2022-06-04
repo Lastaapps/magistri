@@ -13,7 +13,12 @@ android {
         minSdk = App.MIN_SDK
         targetSdk = App.TARGET_SDK
 
+        multiDexEnabled = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        ksp {
+            arg("room.schemaLocation", "$projectDir/schemas")
+        }
     }
 
     buildTypes {
@@ -25,6 +30,8 @@ android {
         }
     }
     compileOptions {
+        isCoreLibraryDesugaringEnabled = true
+
         sourceCompatibility = Versions.JAVA
         targetCompatibility = Versions.JAVA
     }
@@ -34,6 +41,8 @@ android {
 }
 
 dependencies {
+
+    coreLibraryDesugaring(Libs.DESUGARING)
 
     implementation(Libs.ROOM)
     implementation(Libs.ROOM_KTX)

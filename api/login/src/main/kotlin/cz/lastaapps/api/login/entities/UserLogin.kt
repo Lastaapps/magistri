@@ -1,17 +1,16 @@
-package cz.lastaapps.api.login.db.entities
+package cz.lastaapps.api.login.entities
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import cz.lastaapps.api.login.auth.entities.Password
-import cz.lastaapps.api.login.auth.entities.SchoolUrl
-import cz.lastaapps.api.login.auth.entities.Username
 
-@Entity
+@Entity(tableName = "user_login")
 data class UserLogin(
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     val id: UserId,
     val username: Username,
     val password: Password,
+    @ColumnInfo(name = "school_url")
     val schoolUrl: SchoolUrl,
     val town: String?,
     val school: String?,

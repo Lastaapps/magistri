@@ -1,7 +1,7 @@
 package cz.lastaapps.api.login.auth
 
 import cz.lastaapps.api.login.Constants
-import cz.lastaapps.api.login.auth.entities.*
+import cz.lastaapps.api.login.entities.*
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.engine.cio.*

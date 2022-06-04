@@ -1,10 +1,6 @@
 package cz.lastaapps.api.login
 
-import cz.lastaapps.api.login.auth.entities.Password
-import cz.lastaapps.api.login.auth.entities.Username
-import cz.lastaapps.api.login.db.entities.UserId
-import cz.lastaapps.api.login.school.entities.School
-import cz.lastaapps.api.login.school.entities.Town
+import cz.lastaapps.api.login.entities.*
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
 

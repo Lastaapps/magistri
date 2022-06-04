@@ -1,10 +1,9 @@
 package cz.lastaapps.api.login
 
-import cz.lastaapps.api.login.auth.entities.AccessToken
-import cz.lastaapps.api.login.auth.entities.RefreshToken
-import cz.lastaapps.api.login.auth.entities.SchoolUrl
-import cz.lastaapps.api.login.db.UserStorage
-import cz.lastaapps.api.login.db.entities.UserId
+import cz.lastaapps.api.login.entities.AccessToken
+import cz.lastaapps.api.login.entities.RefreshToken
+import cz.lastaapps.api.login.entities.SchoolUrl
+import cz.lastaapps.api.login.entities.UserId
 import io.ktor.client.*
 import io.ktor.client.engine.cio.*
 import io.ktor.client.plugins.*
