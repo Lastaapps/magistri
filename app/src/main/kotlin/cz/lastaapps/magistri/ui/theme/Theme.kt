@@ -1,4 +1,4 @@
-package cz.lastaapps.bakalari.ui.theme
+package cz.lastaapps.magistri.ui.theme
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.isSystemInDarkTheme

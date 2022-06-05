@@ -1,4 +1,4 @@
-package cz.lastaapps.bakalari
+package cz.lastaapps.magistri
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
@@ -8,7 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import cz.lastaapps.bakalari.ui.theme.AppTheme
+import cz.lastaapps.magistri.ui.theme.AppTheme
 import cz.lastaapps.ui.login.LoginUI
 import cz.lastaapps.ui.login.LoginViewModel
 import cz.lastaapps.ui.login.SchoolsViewModel

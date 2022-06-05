@@ -1,3 +1,3 @@
-# Bakaláři client
+# Magistři
 
-This app serves as an alternative client for Bakaláři project.
+This app serves as an alternative Android client for Bakaláři school system.

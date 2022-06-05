@@ -1,4 +1,5 @@
-package cz.lastaapps.bakalari.ui.theme
+package cz.lastaapps.magistri.ui.theme
+
 import androidx.compose.ui.graphics.Color
 
 
@@ -57,7 +58,6 @@ val md_theme_dark_inverseOnSurface = Color(0xFF1C1B1F)
 val md_theme_dark_inverseSurface = Color(0xFFE6E1E5)
 val md_theme_dark_inversePrimary = Color(0xFF006780)
 val md_theme_dark_shadow = Color(0xFF000000)
-
 
 
 val seed = Color(0xFF6750A4)

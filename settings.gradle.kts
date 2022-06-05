@@ -12,9 +12,9 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "Bakalari"
+rootProject.name = "Magistři"
 
 include(":app")
 include(":api:login")
-include(":ui:login")
 include(":ui:common")
+include(":ui:login")
