@@ -26,7 +26,7 @@ object Versions {
     const val COLLECTION = "1.2.0"
     const val CONSTRAINTLAYOUT = "2.1.3"
     const val CORE = "1.8.0"
-    const val DAGGER_HILT = "2.38.1"
+    const val DAGGER_HILT = "2.42"
     const val DATASTORE = "1.0.0"
     const val DOCUMENT_FILE = "1.1.0-alpha01"
     const val EMOJI = "1.1.0"

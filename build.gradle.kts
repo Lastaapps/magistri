@@ -1,4 +1,7 @@
 buildscript {
+    dependencies {
+        classpath(Classpath.DAGGER_HILT)
+    }
 }
 
 plugins {

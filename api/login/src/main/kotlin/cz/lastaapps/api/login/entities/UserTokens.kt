@@ -14,9 +14,9 @@ import java.time.Instant
             childColumns = ["id"],
             onDelete = ForeignKey.CASCADE,
         ),
-    ]
+    ],
 )
-data class UserTokens(
+internal data class UserTokens(
     @PrimaryKey
     val id: UserId,
     val refresh: RefreshToken,

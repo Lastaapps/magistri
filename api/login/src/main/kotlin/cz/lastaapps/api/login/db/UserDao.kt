@@ -5,14 +5,11 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy.REPLACE
 import androidx.room.Query
 import androidx.room.Transaction
-import cz.lastaapps.api.login.entities.UserId
-import cz.lastaapps.api.login.entities.UserLogin
-import cz.lastaapps.api.login.entities.UserProfile
-import cz.lastaapps.api.login.entities.UserTokens
+import cz.lastaapps.api.login.entities.*
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-abstract class UserDao {
+internal abstract class UserDao {
 
     @Transaction
     open suspend fun insertNew(userLogin: UserLogin): UserId {
@@ -30,6 +27,13 @@ abstract class UserDao {
 
     @Insert(onConflict = REPLACE)
     abstract suspend fun insert(userTokens: UserProfile)
+
+
+    @Query("SELECT count(id) FROM user_login")
+    abstract fun numberOfUsers(): Flow<Int>
+
+    @Query("SELECT id FROM user_profile WHERE profile_name = :profileName")
+    abstract fun findUserIdForProfileName(profileName: ProfileName): Flow<UserId?>
 
 
     @Query("SELECT * FROM user_login WHERE id = :userId")

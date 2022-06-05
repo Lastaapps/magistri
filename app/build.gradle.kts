@@ -2,6 +2,7 @@ plugins {
     id(Plugins.APPLICATION)
     id(Plugins.KOTLIN_ANDROID)
     id(Plugins.KAPT)
+    id(Plugins.DAGGER_HILT)
 }
 
 project.group = App.GROUP
@@ -37,7 +38,6 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         multiDexEnabled = true
-
     }
     lint {
         abortOnError = false
@@ -54,9 +54,6 @@ android {
             isMinifyEnabled = true
             isShrinkResources = true
         }
-    }
-    buildFeatures {
-        buildConfig = false
     }
     packagingOptions {
         resources.excludes.add("META-INF/*")
@@ -96,18 +93,20 @@ dependencies {
 
     coreLibraryDesugaring(Libs.DESUGARING)
 
-    implementation(Libs.SPLASHSCREEN)
-    implementation(Libs.MATERIAL)
+    implementation(project(Projects.ui.login))
+
+    implementation(Libs.APPCOMPAT)
     implementation(Libs.CORE)
     implementation(Libs.DATASTORE)
     implementation(Libs.LIFECYCLE)
+    implementation(Libs.MATERIAL)
+    implementation(Libs.SPLASHSCREEN)
     implementation(Libs.STARTUP)
-    implementation(Libs.WINDOW_MANAGER)
     implementation(Libs.VECTOR_DRAWABLES)
+    implementation(Libs.WINDOW_MANAGER)
 
     implementation(Libs.DAGGER_HILT)
     implementation(Libs.HILT_COMMON)
-    implementation(Libs.HILT_VIEWMODEL)
     implementation(Libs.HILT_NAVIGATION_COMPOSE)
     kapt(Libs.DAGGER_HILT_COMPILER)
     kapt(Libs.HILT_COMPILER)

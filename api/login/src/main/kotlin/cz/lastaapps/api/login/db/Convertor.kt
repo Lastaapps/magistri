@@ -7,7 +7,7 @@ import java.time.ZoneId
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 
-class Convertor {
+internal class Convertor {
     @TypeConverter
     fun userIdFrom(from: UserId): Long {
         return from.id
@@ -29,6 +29,12 @@ class Convertor {
 
     @TypeConverter
     fun passwordTo(to: String) = Password(to)
+
+    @TypeConverter
+    fun profileNameFrom(from: ProfileName) = from.name
+
+    @TypeConverter
+    fun profileNameTo(to: String) = ProfileName(to)
 
     @TypeConverter
     fun schoolUrlFrom(from: SchoolUrl) = from.raw

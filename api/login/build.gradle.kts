@@ -3,6 +3,8 @@ plugins {
     id(Plugins.KOTLIN_ANDROID)
     id(Plugins.SERIALIZABLE)
     id(Plugins.KSP)
+    id(Plugins.KAPT)
+    id(Plugins.DAGGER_HILT)
 }
 
 android {
@@ -40,6 +42,10 @@ android {
     }
 }
 
+kapt {
+    correctErrorTypes = true
+}
+
 dependencies {
 
     coreLibraryDesugaring(Libs.DESUGARING)
@@ -57,6 +63,12 @@ dependencies {
     implementation("io.ktor:ktor-client-auth:${Versions.KTOR}")
 
     implementation(Libs.KM_LOGGING)
+
+    implementation(Libs.DAGGER_HILT)
+    implementation(Libs.HILT_COMMON)
+    implementation(Libs.HILT_NAVIGATION_COMPOSE)
+    kapt(Libs.DAGGER_HILT_COMPILER)
+    kapt(Libs.HILT_COMPILER)
 
     testImplementation(Tests.JUNIT)
     testImplementation(Tests.COROUTINES)

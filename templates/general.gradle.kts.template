@@ -1,0 +1,49 @@
+plugins {
+    id(Plugins.LIBRARY)
+    id(Plugins.KOTLIN_ANDROID)
+}
+
+android {
+    namespace = "cz.lastaapps." //TODO name package
+    compileSdk = App.COMPILE_SDK
+
+    defaultConfig {
+        minSdk = App.MIN_SDK
+        targetSdk = App.TARGET_SDK
+
+        multiDexEnabled = true
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
+    }
+
+    buildTypes {
+        release {
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+    }
+    compileOptions {
+        isCoreLibraryDesugaringEnabled = true
+
+        sourceCompatibility = Versions.JAVA
+        targetCompatibility = Versions.JAVA
+    }
+    kotlinOptions {
+        jvmTarget = Versions.JVM_TARGET
+        languageVersion = Versions.KOTLIN_LANGUAGE_VERSION
+        apiVersion = Versions.KOTLIN_LANGUAGE_VERSION
+    }
+    buildFeatures {
+        buildConfig = false
+    }
+}
+
+dependencies {
+    coreLibraryDesugaring(Libs.DESUGARING)
+
+    implementation(Libs.KOTLIN_COROUTINES)
+    implementation(Libs.KM_LOGGING)
+
+}

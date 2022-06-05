@@ -15,7 +15,7 @@ import io.ktor.serialization.kotlinx.json.*
 import kotlinx.coroutines.channels.Channel
 import org.lighthousegames.logging.logging
 
-class SchoolRequestsImpl : SchoolRequests {
+class SchoolRepoImpl : SchoolRepo {
 
     companion object {
         private val log = logging()
@@ -38,9 +38,9 @@ class SchoolRequestsImpl : SchoolRequests {
 
             httpClient.get {
                 url(Constants.townsUrl)
-            }.body<List<Town>>().also {
-                log.i { "Loaded ${it.size} towns" }
-            }
+            }.body<List<Town>>()
+                .filter { it.name.isNotBlank() } // to remove the one blank town
+                .also { log.i { "Loaded ${it.size} towns" } }
         } catch (e: Exception) {
             log.e(e) { "Loading towns failed" }
             errors.send(e)

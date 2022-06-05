@@ -4,7 +4,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class LoginResponse(
+internal data class LoginResponse(
     @SerialName("bak:ApiVersion")
     val apiVersion: String,
     @SerialName("bak:AppVersion")

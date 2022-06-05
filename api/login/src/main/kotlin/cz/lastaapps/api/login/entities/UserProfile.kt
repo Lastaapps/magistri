@@ -14,11 +14,11 @@ import androidx.room.PrimaryKey
             childColumns = ["id"],
             onDelete = ForeignKey.CASCADE,
         ),
-    ]
+    ],
 )
-data class UserProfile(
+internal data class UserProfile(
     @PrimaryKey
     val id: UserId,
     @ColumnInfo(name = "profile_name")
-    val profileName: String,
+    val profileName: ProfileName,
 )

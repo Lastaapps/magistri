@@ -17,12 +17,12 @@ import cz.lastaapps.api.login.entities.UserTokens
     exportSchema = true,
 )
 @TypeConverters(Convertor::class)
-abstract class UserDatabase : RoomDatabase() {
+internal abstract class UserDatabase : RoomDatabase() {
 
     abstract val userDao: UserDao
 
     companion object {
-        fun createDatabase(context: Context) =
+        fun createDatabase(context: Context): UserDatabase =
             Room.databaseBuilder(
                 context, UserDatabase::class.java, "user_database"
             ).build()

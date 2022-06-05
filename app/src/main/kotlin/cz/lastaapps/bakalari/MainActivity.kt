@@ -1,18 +1,25 @@
 package cz.lastaapps.bakalari
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Box
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import cz.lastaapps.bakalari.ui.theme.AppTheme
+import cz.lastaapps.ui.login.LoginUI
+import cz.lastaapps.ui.login.LoginViewModel
+import cz.lastaapps.ui.login.SchoolsViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-class MainActivity : ComponentActivity() {
+@AndroidEntryPoint
+class MainActivity : AppCompatActivity() {
+
+    private val loginViewModel: LoginViewModel by viewModels()
+    private val schoolsViewModel: SchoolsViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -21,9 +28,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             AppTheme {
                 Surface(Modifier.fillMaxSize()) {
-                    Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                        Text("Hello, Bakaláři 2.0")
-                    }
+                    LoginUI(loginViewModel, schoolsViewModel)
                 }
             }
         }
