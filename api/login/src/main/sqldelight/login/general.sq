@@ -1,0 +1,9 @@
+
+numberOfUsers:
+    SELECT count(id) FROM user_login;
+
+getUserForProfileName:
+    SELECT id FROM user_profile WHERE profile_name = :profileName;
+
+deleteUser:
+    DELETE FROM user_login WHERE id = :id;

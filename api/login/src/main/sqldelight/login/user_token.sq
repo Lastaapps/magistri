@@ -1,0 +1,20 @@
+import cz.lastaapps.api.login.entities.AccessToken;
+import cz.lastaapps.api.login.entities.RefreshToken;
+import cz.lastaapps.api.login.entities.UserId;
+import java.time.ZonedDateTime;
+
+CREATE TABLE user_token (
+    id INTEGER AS UserId NOT NULL PRIMARY KEY,
+    access TEXT AS AccessToken NOT NULL,
+    refresh TEXT AS RefreshToken NOT NULL,
+    expired TEXT AS ZonedDateTime NOT NULL,
+    FOREIGN KEY (id) REFERENCES user_login(id) ON DELETE CASCADE
+);
+
+insertOrUpdate:
+    INSERT OR REPLACE INTO user_token
+    (id, access, refresh, expired)
+    VALUES (:id, :access, :refresh, :expired);
+
+getUserToken:
+    SELECT * FROM user_token WHERE id = :id;

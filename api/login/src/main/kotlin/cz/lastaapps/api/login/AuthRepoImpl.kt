@@ -46,7 +46,7 @@ class AuthRepoImpl internal constructor(
 
         val response = authRequests.tryLogin(schoolUrl, username, password) ?: return null
         val login = UserLogin(
-            UserId.useAuto, username, password, schoolUrl, town, school
+            UserId.useAuto, username, schoolUrl, town, school
         )
 
         val id = userStorage.insertNew(login)
@@ -77,10 +77,8 @@ class AuthRepoImpl internal constructor(
             currentLogin.schoolUrl, currentLogin.username, password
         ) ?: return null
 
-        val login = currentLogin.copy(password = password)
         val tokens = response.toTokens(id)
 
-        userStorage.updateUserLogin(login)
         userStorage.updateUserTokens(tokens)
         return id
     }
@@ -100,7 +98,7 @@ class AuthRepoImpl internal constructor(
 
     private fun LoginResponse.toTokens(userId: UserId): UserTokens =
         UserTokens(
-            userId, RefreshToken(refreshToken), AccessToken(accessToken),
-            ZonedDateTime.now().plusSeconds(expiresIn.toLong()).toInstant()
+            userId, AccessToken(accessToken), RefreshToken(refreshToken),
+            ZonedDateTime.now().plusSeconds(expiresIn.toLong())
         )
 }

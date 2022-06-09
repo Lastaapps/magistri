@@ -1,0 +1,29 @@
+import cz.lastaapps.api.login.entities.SchoolUrl;
+import cz.lastaapps.api.login.entities.UserId;
+import cz.lastaapps.api.login.entities.Username;
+
+CREATE TABLE user_login (
+    id INTEGER AS UserId NOT NULL PRIMARY KEY AUTOINCREMENT,
+    username TEXT AS Username NOT NULL,
+    school_url TEXT AS SchoolUrl NOT NULL,
+    town TEXT,
+    school TEXT
+);
+
+insertNew:
+    INSERT INTO user_login (username, school_url, town, school)
+    VALUES (?, ?, ?, ?);
+
+lastInsertRowId:
+    SELECT last_insert_rowid();
+
+getIdForRowId:
+    SELECT id FROM user_login WHERE rowid = :rowid;
+
+updateExisting:
+    UPDATE user_login
+    SET username = :username, school_url = :schoolUrl, town = :town, school = :school
+    WHERE id = (?);
+
+getUserLogin:
+    SELECT * FROM user_login WHERE id = :id;

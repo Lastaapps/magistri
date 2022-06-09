@@ -1,0 +1,16 @@
+import cz.lastaapps.api.login.entities.ProfileName;
+import cz.lastaapps.api.login.entities.UserId;
+
+CREATE TABLE user_profile (
+    id INTEGER AS UserId NOT NULL PRIMARY KEY,
+    profile_name TEXT AS ProfileName NOT NULL,
+    UNIQUE (profile_name),
+    FOREIGN KEY (id) REFERENCES user_login(id) ON DELETE CASCADE
+);
+
+insertOrUpdate:
+    INSERT OR REPLACE INTO user_profile
+    VALUES (:id, :profileName);
+
+getUserProfile:
+    SELECT * FROM user_profile WHERE id = :id;

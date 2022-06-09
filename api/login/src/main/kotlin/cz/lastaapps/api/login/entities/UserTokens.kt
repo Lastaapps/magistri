@@ -1,25 +1,10 @@
 package cz.lastaapps.api.login.entities
 
-import androidx.room.Entity
-import androidx.room.ForeignKey
-import androidx.room.PrimaryKey
-import java.time.Instant
+import java.time.ZonedDateTime
 
-@Entity(
-    tableName = "user_tokens",
-    foreignKeys = [
-        ForeignKey(
-            entity = UserLogin::class,
-            parentColumns = ["id"],
-            childColumns = ["id"],
-            onDelete = ForeignKey.CASCADE,
-        ),
-    ],
-)
 internal data class UserTokens(
-    @PrimaryKey
     val id: UserId,
-    val refresh: RefreshToken,
     val access: AccessToken,
-    val expires: Instant,
+    val refresh: RefreshToken,
+    val expires: ZonedDateTime,
 )
